@@ -1,0 +1,92 @@
+\documentclass{beamer}
+\usepackage[orientation=portrait,size=a0,scale=1.5,debug]{beamerposter}
+\mode<presentation>{\usetheme{BRLposter}}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{hyperref} %enable hyperlink for urls
+\usepackage{blindtext}
+
+\title{Long long very long title}
+\author{Fancy people with fancy namess.}
+\institute{Fancy institutions with fancy names.}
+\email{mail@mail.ac.uk}
+\date{\today}
+
+\newlength{\columnheight}
+\setlength{\columnheight}{105cm}
+
+\begin{document}
+\begin{frame}
+	
+\begin{BRLblock}{Normal Title}
+\blindmathtrue \blindtext
+\end{BRLblock}
+
+\vspace{0.8cm}
+\begin{BRLblock}[colframe=white,no shadow]{}
+	Block without title and corners
+\end{BRLblock}	
+\vspace{3.0cm}
+
+\begin{columns}[t]
+	\begin{column}{.49\textwidth}
+		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+			\begin{BRLblock}[equal height group=A]{Half title}
+				\blindtext
+			\end{BRLblock}\vfill
+	\end{beamercolorbox}
+	\end{column}
+	\hspace{15pt}
+	\begin{column}{.49\textwidth}
+		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+			\begin{BRLblock}[equal height group=A]{Half title}
+				\blindtext
+				\begin{figure}
+					\begin{minipage}{0.43\textwidth}
+						\centering\includegraphics[width=0.6\textwidth]{BRL}
+						\caption{Caption}
+					\end{minipage}
+					\begin{minipage}{0.03\textwidth}
+					\end{minipage}
+					\begin{minipage}{0.45\textwidth}
+						\centering\includegraphics[width=0.34\textwidth]{BRL}
+						\caption{Caption}
+					\end{minipage}
+				\end{figure}
+			\end{BRLblock}
+		\end{beamercolorbox}
+	\end{column}
+\end{columns}
+
+\vspace{0.8cm}
+\begin{BRLblock}[colframe=white,no shadow]{No Shadow Title}
+	\blindtext
+\end{BRLblock}
+\vspace{0.8cm}
+
+\begin{columns}[t]
+	\begin{column}{.39\textwidth}
+		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+			\begin{BRLblock}[equal height group=B]{Half title}
+				\blindtext
+			\end{BRLblock}\vfill
+		\end{beamercolorbox}
+	\end{column}
+	\hspace{15pt}
+	\begin{column}{.59\textwidth}
+		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+			\begin{BRLblock}[equal height group=B]{Half title}
+				\blindtext
+			\end{BRLblock}
+		\end{beamercolorbox}
+	\end{column}
+\end{columns}
+
+\vspace{1.8cm}
+\begin{BRLblock}{Title}
+\blindtext
+\end{BRLblock}
+\vspace{0.4cm}
+
+\end{frame}
+\end{document}

@@ -1,0 +1,135 @@
+\ProvidesPackage{beamerthemeBRLposter}
+
+% Bristol Robotics Laboratory (BRL) Beamer Poster theme by Erwin Lopez (2015, 2016)
+% All artistic and trademark rights are property of the respective organizations:
+% Bristol Robotics Laboratory, University of West of England, University of Bristol
+%
+% based on ETH Zürich theme by Horea Christian:
+% Copyright 2003 by Till Tantau <tantau@users.sourceforge.net>
+%
+% This program can be redistributed and/or modified under the terms
+% of the Apache License.
+
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage[percent]{overpic}
+\usepackage{tgbonum}
+\usepackage{lmodern}
+
+\mode<presentation>
+
+\definecolor{BRL1}{RGB}{236,29,59}
+\definecolor{BRL2}{RGB}{111,111,110}
+\definecolor{tlg}{RGB}{255,255,255}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%It seems many of the following entries do not control any visible Behaviour. All such entries are
+%set to red, so that they are easy to spot if they ever become visible
+
+\setbeamercolor{headline}{fg=BRL1,bg=white}
+\setbeamercolor{footline}{fg=BRL1, bg=BRL1}
+\setbeamerfont{footline}{size=\large,series=\tt}
+\setbeamercolor{separation line}{bg=white}
+\setbeamercolor{title in headline}{fg=black}
+\setbeamercolor{author in headline}{fg=black}
+\setbeamercolor{institute in headline}{fg=black}
+
+\setbeamercolor{framesubtitle}{fg=BRL1, bg=ta2gray}
+\setbeamercolor{author in head/foot}{fg=white, bg=BRL1}
+\setbeamercolor{title in head/foot}{fg=BRL1, bg=BRL1}
+
+\setbeamercolor*{normal text}{fg=BRL2, bg=tlg}
+\setbeamercolor*{block body}{fg=black, bg=white}
+\setbeamercolor*{block title}{fg=BRL1,bg=BRL1}
+\setbeamerfont{block title}{size=\large,series=\bf}
+\setbeamercolor{upper separation line head}{fg=BRL1}
+
+\setbeamercolor*{example body}{fg=BRL1,bg=BRL1}
+\setbeamercolor*{example text}{fg=BRL1,bg=BRL1}
+\setbeamercolor*{example title}{bg=BRL1,fg=BRL1}
+
+\setbeamercolor{alerted text}{fg=BRL1}
+\setbeamercolor{structure}{fg=BRL1}
+
+\setbeamertemplate{itemize items}{\color{BRL1}$\blacktriangleright$}
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Special block for BRL designed style
+\newtcolorbox{BRLblock}[2][]
+{
+	enhanced,
+	coltitle=black,
+	colback=white,
+	colframe=BRL1,
+	colbacktitle=white,
+	fonttitle=\bfseries \large,
+	boxsep = 0.005\paperwidth,
+	boxrule = 0.002\paperwidth,
+	titlerule = 0mm,
+	titlerule style=white,
+	drop shadow,
+	arc=8pt,
+	title=#2,
+	#1
+}
+
+% Special token to include the email in the template
+\newtoks\email
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{
+  \leavevmode
+
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+  	\vskip0.012\paperheight
+  	\begin{overpic}[width=\paperwidth]{BRL}
+  		\put (2,3) {\color{black}\textbf{\Huge{\inserttitle}}}
+  	\end{overpic}
+  	\vskip0.012\paperheight
+  	
+    \begin{columns}[T]
+      \begin{column}{.875\paperwidth}
+        \vskip1ex
+        \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+        \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+        \vskip1ex
+      \end{column}
+      \begin{column}{.03\paperwidth}
+      \end{column}
+    \end{columns}
+    
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+
+  \leavevmode%
+  \begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{author in head/foot}%
+    \url{http://www.brl.ac.uk}
+    \hfill
+    \today
+    \hfill
+    \href{mailto:\the\email}{\the\email}
+    \vskip1ex
+  \end{beamercolorbox}
+  \vskip0pt%
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Some beamer customizations:
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]{}% Number float-like environments
+
+\mode<all>
